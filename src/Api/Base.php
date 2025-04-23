@@ -141,11 +141,11 @@ class Base
     /**
      * 设置 API 地址
      * @param string $url
-     * @return void
      */
     public function setBaseUrl(string $url)
     {
         $this->baseUrl = $url;
+        return $this;
     }
 
     /**
