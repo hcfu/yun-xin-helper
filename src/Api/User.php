@@ -318,4 +318,26 @@ class User extends Base
         ]);
         return $res['uinfos'];
     }
+     /**
+     * 设置黑名单/静音
+     * https://doc.yunxin.163.com/messaging/docs/jEzNDQ4ODc?platform=server#设置黑名单静音
+     *
+     * @param $accId
+     * @param $targetAcc
+     * @param int $relationType
+     * @param integer $value
+     * @return array|mixed
+     * @throws YunXinBusinessException
+     * @throws YunXinInnerException
+     * @throws YunXinNetworkException
+     */
+    public function setSpecialRelation($accId, $targetAcc, int $relationType = 1, int $value = 0)
+    {
+        return $this->sendRequest('user/setSpecialRelation.action', [
+            'accid'        => $accId,
+            'targetAcc'    => $targetAcc,
+            'relationType' => $relationType,
+            'value'        => $value,
+        ]);
+    }
 }
